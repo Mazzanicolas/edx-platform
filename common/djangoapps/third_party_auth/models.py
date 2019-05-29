@@ -74,6 +74,7 @@ def clean_username(username=''):
 
 class AuthNotConfigured(SocialAuthBaseException):
     """ Exception when SAMLProviderData or other required info is missing """
+
     def __init__(self, provider_name):
         super(AuthNotConfigured, self).__init__()
         self.provider_name = provider_name
@@ -360,10 +361,6 @@ class OAuth2ProviderConfig(ProviderConfig):
             # which production.py sets from THIRD_PARTY_AUTH_BACKENDS
         )
     )
-    auth_url = models.CharField(max_length=255, blank=True, verbose_name="Authentication URL")
-    token_url = models.CharField(max_length=255, blank=True, verbose_name="Token URL")
-    user_info_url = models.CharField(max_length=255, blank=True, verbose_name="User Info URL")
-    redirect_uri = models.CharField(max_length=255, blank=True, verbose_name="Redirect URL")
     key = models.TextField(blank=True, verbose_name="Client ID")
     secret = models.TextField(
         blank=True,
@@ -396,14 +393,6 @@ class OAuth2ProviderConfig(ProviderConfig):
                 return self.secret
             # To allow instances to avoid storing secrets in the DB, the secret can also be set via Django:
             return getattr(settings, 'SOCIAL_AUTH_OAUTH_SECRETS', {}).get(self.backend_name, '')
-        if name == "auth_url":
-            return self.auth_url
-        if name == "redirect_uri":
-            return self.redirect_uri
-        if name == "token_url":
-            return self.token_url
-        if name == "user_info_url":
-            return self.user_info_url
         if self.other_settings:
             other_settings = json.loads(self.other_settings)
             assert isinstance(other_settings, dict), "other_settings should be a JSON object (dictionary)"

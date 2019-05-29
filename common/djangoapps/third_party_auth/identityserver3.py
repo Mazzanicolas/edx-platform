@@ -26,7 +26,7 @@ class IdentityServer3(BaseOAuth2):
         return self.get_config().get_setting('token_url')
 
     def get_redirect_uri(self, state=None):
-        return self.get_config().get_setting('redirect_uri')
+        return self.get_config().get_setting('redirect_url')
 
     def user_data(self, access_token, *args, **kwargs):
         """
