@@ -2,7 +2,7 @@
 Unit tests for the IdentityServer3 OAuth2 Backend
 """
 
-from third_party_auth.identityServer3 import IdentityServer3
+from third_party_auth.identityserver3 import IdentityServer3
 from third_party_auth.tests import testutil
 from third_party_auth.tests.factories import OAuth2ProviderConfigFactory
 
