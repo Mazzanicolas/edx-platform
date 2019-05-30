@@ -27,7 +27,7 @@ class TestDiscountRestrictionConfig(CacheIsolationTestCase):
         super(TestDiscountRestrictionConfig, self).setUp()
 
     @ddt.data(True, False)
-    def test_enabled_for_course(
+    def test_disabled_for_course(
         self,
         enabled,
     ):
