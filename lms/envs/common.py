@@ -2156,7 +2156,7 @@ INSTALLED_APPS = [
     'course_modes.apps.CourseModesConfig',
 
     # Enrollment API
-    'enrollment',
+    'openedx.core.djangoapps.enrollments',
 
     # Entitlement API
     'entitlements.apps.EntitlementsConfig',
@@ -2480,6 +2480,14 @@ VERIFY_STUDENT = {
     # The variable represents the window within which a verification is considered to be "expiring soon."
     "EXPIRING_SOON_WINDOW": 28,
 }
+
+################# Student Verification Expiry Email #################
+VERIFICATION_EXPIRY_EMAIL = {
+    "RESEND_DAYS": 15,
+    "DAYS_RANGE": 1,
+    "DEFAULT_EMAILS": 2,
+}
+
 DISABLE_ACCOUNT_ACTIVATION_REQUIREMENT_SWITCH = "verify_student_disable_account_activation_requirement"
 
 ### This enables the Metrics tab for the Instructor dashboard ###########
@@ -2880,6 +2888,7 @@ OPTIONAL_APPS = [
     ('integrated_channels.integrated_channel', None),
     ('integrated_channels.degreed', None),
     ('integrated_channels.sap_success_factors', None),
+    ('integrated_channels.cornerstone', None),
     ('integrated_channels.xapi', None),
 
     # Required by the Enterprise App
