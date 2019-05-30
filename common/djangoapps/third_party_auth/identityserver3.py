@@ -1,3 +1,4 @@
+#pylint: disable=W0223
 """
     python-social-auth backend for use with IdentityServer3
     docs: https://identityserver.github.io/Documentation/docsv2/endpoints/authorization.html
