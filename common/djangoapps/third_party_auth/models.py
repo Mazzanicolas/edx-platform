@@ -74,7 +74,6 @@ def clean_username(username=''):
 
 class AuthNotConfigured(SocialAuthBaseException):
     """ Exception when SAMLProviderData or other required info is missing """
-
     def __init__(self, provider_name):
         super(AuthNotConfigured, self).__init__()
         self.provider_name = provider_name

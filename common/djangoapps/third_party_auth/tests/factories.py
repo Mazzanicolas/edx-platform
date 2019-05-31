@@ -5,7 +5,6 @@ from factory import SubFactory
 from factory.django import DjangoModelFactory
 
 from openedx.core.djangoapps.site_configuration.tests.factories import SiteFactory
-from third_party_auth.models import SAMLConfiguration, SAMLProviderConfig, OAuth2ProviderConfig
 
 
 class SAMLConfigurationFactory(DjangoModelFactory):
@@ -35,15 +34,3 @@ class SAMLProviderConfigFactory(DjangoModelFactory):
 
     entity_id = "https://idp.testshib.org/idp/shibboleth"
     metadata_source = "https://www.testshib.org/metadata/testshib-providers.xml"
-
-
-class OAuth2ProviderConfigFactory(DjangoModelFactory):
-    """
-    Factory for OAuth2ProviderConfig model in third_party_auth app.
-    """
-    class Meta(object):
-        model = OAuth2ProviderConfig
-
-    enabled = True
-    slug = "fake-provider"
-    backend_name = "dummy"
