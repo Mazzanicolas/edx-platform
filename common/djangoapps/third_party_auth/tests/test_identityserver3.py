@@ -1,11 +1,12 @@
 """
 Unit tests for the IdentityServer3 OAuth2 Backend
 """
-
+import unittest
 from third_party_auth.identityserver3 import IdentityServer3
 from third_party_auth.tests import testutil
 
 
+@unittest.skipUnless(testutil.AUTH_FEATURE_ENABLED, testutil.AUTH_FEATURES_KEY + ' not enabled')
 class IdentityServer3Test(testutil.TestCase):
     """
     Unit tests for the IdentityServer3 OAuth2 Backend
